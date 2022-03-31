@@ -1,0 +1,996 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "mdp",
+    "description": "",
+    "version": "1.0.0"
+  },
+  "tags": [
+    {
+      "name": "User"
+    },
+    {
+      "name": "friend"
+    },
+    {
+      "name": "Group"
+    }
+  ],
+  "paths": {
+    "/login": {
+      "get": {
+        "summary": "login",
+        "x-apifox-folder": "User",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "登录",
+        "tags": [
+          "User"
+        ],
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "example": "snitxmhm",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "username",
+                  "password"
+                ]
+              },
+              "example": {
+                "username": "Ronald",
+                "password": "B6u2kWHd]@A84v"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "loginstatus": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "loginstatus"
+                  ]
+                },
+                "examples": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/userinfo": {
+      "get": {
+        "summary": "userinfo",
+        "x-apifox-folder": "User",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "User"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id"
+                ]
+              },
+              "example": {
+                "id": "140000197611236446"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/userinfo"
+                },
+                "examples": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/getallusers": {
+      "get": {
+        "summary": "getallusers",
+        "x-apifox-folder": "User",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "获取所有用户",
+        "tags": [
+          "User"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/userinfo"
+                  }
+                },
+                "examples": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/updateUserName": {
+      "get": {
+        "summary": "updateUserName",
+        "x-apifox-folder": "User",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "User"
+        ],
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "description": "token",
+            "required": false,
+            "example": "{{'snitxmhm'}}",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "username"
+                ]
+              },
+              "example": {
+                "username": "Robert"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "setstatus": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "setstatus"
+                  ]
+                },
+                "examples": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/updateUserProfilePicture": {
+      "get": {
+        "summary": "updateUserProfilePicture",
+        "x-apifox-folder": "User",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "User"
+        ],
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "description": "token",
+            "required": false,
+            "example": "{{'snitxmhm'}}",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "profilePicturePath": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "profilePicturePath"
+                ]
+              },
+              "example": {
+                "username": "Robert"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "setstatus": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "setstatus"
+                  ]
+                },
+                "examples": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/updateUserPwd": {
+      "get": {
+        "summary": "updateUserPwd",
+        "x-apifox-folder": "User",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "更新密码",
+        "tags": [
+          "User"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "oldPwd": {
+                    "type": "string"
+                  },
+                  "confirm_oldPwd": {
+                    "type": "string"
+                  },
+                  "newPwd": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "oldPwd",
+                  "confirm_oldPwd",
+                  "newPwd"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/deltefriend": {
+      "get": {
+        "summary": "deltefriend",
+        "x-apifox-folder": "friend",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "删除好友",
+        "tags": [
+          "friend"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer"
+                  },
+                  "friend_id": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "id",
+                  "friend_id"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/searchuserbyname": {
+      "get": {
+        "summary": "searchuserbyname",
+        "x-apifox-folder": "User",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "根据用户名搜索用户",
+        "tags": [
+          "User"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "search": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "search"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/userinfo"
+                  }
+                },
+                "examples": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/groupinfo": {
+      "get": {
+        "summary": "groupinfo",
+        "x-apifox-folder": "Group",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Group"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "groupid": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "groupid"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/groupinfo"
+                  }
+                },
+                "examples": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/mygroup": {
+      "get": {
+        "summary": "mygroup",
+        "x-apifox-folder": "Group",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Group"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "id"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/groupinfo"
+                  }
+                },
+                "examples": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/joingroup": {
+      "get": {
+        "summary": "joingroup",
+        "x-apifox-folder": "Group",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Group"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "group_id": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "group_id"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/myfriends": {
+      "get": {
+        "summary": "myfriends",
+        "x-apifox-folder": "friend",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "获取用户的好友",
+        "tags": [
+          "friend"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "id"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/userinfo"
+                  }
+                },
+                "examples": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/creategroup": {
+      "get": {
+        "summary": "creategroup",
+        "x-apifox-folder": "Group",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Group"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/newgroup"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/register": {
+      "get": {
+        "summary": "register",
+        "x-apifox-folder": "User",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "注册",
+        "tags": [
+          "User"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/sign_up"
+              },
+              "example": {
+                "password": "3v55ey",
+                "email": "o.mgeyh@icqt.br",
+                "username": "John",
+                "password_confirm": "enim aute nostrud Ut ullamco"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/searchgroupbyname": {
+      "get": {
+        "summary": "searchgroupbyname",
+        "x-apifox-folder": "Group",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Group"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "groupname": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "groupname"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/groupinfo"
+                  }
+                },
+                "examples": {}
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "userinfo": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "profilePicturePath": {
+            "type": "string"
+          },
+          "id": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "email",
+          "name",
+          "profilePicturePath",
+          "username",
+          "id"
+        ],
+        "x-apifox-folder": "chatapp"
+      },
+      "newgroup": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "名称"
+          },
+          "description": {
+            "type": "string",
+            "title": "描述"
+          }
+        },
+        "required": [
+          "name",
+          "description"
+        ],
+        "x-apifox-folder": "chatapp"
+      },
+      "Messages": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "content": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "content",
+          "type",
+          "date"
+        ],
+        "x-apifox-folder": "chatapp"
+      },
+      "Conversations": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "title": "对话ID"
+          },
+          "created_at": {
+            "type": "string",
+            "title": "创建日期"
+          },
+          "updated_at": {
+            "type": "string",
+            "title": "更新日期"
+          },
+          "type": {
+            "type": "string",
+            "title": "类型"
+          },
+          "name": {
+            "type": "string",
+            "title": "名称"
+          },
+          "description": {
+            "type": "string",
+            "title": "描述"
+          },
+          "avatar": {
+            "type": "string",
+            "title": "头像"
+          },
+          "participants_ids": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            }
+          },
+          "last_message_id": {
+            "type": "integer",
+            "title": "最后消息",
+            "description": "最后一条消息的ID"
+          },
+          "owner_id": {
+            "type": "integer",
+            "title": "所有者ID"
+          },
+          "unread_messages_count": {
+            "type": "integer",
+            "title": "未读消息数量"
+          }
+        },
+        "required": [
+          "id",
+          "created_at",
+          "updated_at",
+          "type",
+          "name",
+          "description",
+          "avatar",
+          "participants_ids",
+          "last_message_id",
+          "owner_id",
+          "unread_messages_count"
+        ],
+        "x-apifox-folder": "chatapp"
+      },
+      "Users": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "username": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "profilePicturePath": {
+            "type": "string"
+          },
+          "friendsUsernames": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "requestsUsernames": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "id",
+          "password",
+          "email",
+          "name",
+          "profilePicturePath",
+          "friendsUsernames",
+          "requestsUsernames",
+          "username"
+        ],
+        "x-apifox-folder": "chatapp"
+      },
+      "groupinfo": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "title": "对话ID"
+          },
+          "created_at": {
+            "type": "string",
+            "title": "创建日期"
+          },
+          "type": {
+            "type": "string",
+            "title": "类型"
+          },
+          "name": {
+            "type": "string",
+            "title": "名称"
+          },
+          "description": {
+            "type": "string",
+            "title": "描述"
+          },
+          "avatar": {
+            "type": "string",
+            "title": "头像"
+          }
+        },
+        "required": [
+          "id",
+          "created_at",
+          "type",
+          "name",
+          "description",
+          "avatar"
+        ],
+        "x-apifox-folder": "chatapp"
+      },
+      "sign_up": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "password_confirm": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "password",
+          "email",
+          "username",
+          "password_confirm"
+        ],
+        "x-apifox-folder": "chatapp"
+      }
+    }
+  }
+}
